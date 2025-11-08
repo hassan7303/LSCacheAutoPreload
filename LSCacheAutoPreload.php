@@ -34,6 +34,11 @@ if (!class_exists('LSCache_Auto_Preload_Debug')) {
             $url = get_permalink($post_id);
             self::schedule_async_preload($url);
             self::schedule_async_preload(home_url('/'));
+            
+            $post_type = get_post_type($post_id);
+            if ($post_type === 'product') {
+                self::schedule_async_preload(home_url('/shop/'));
+            }
         }
 
         public static function preload_front()
