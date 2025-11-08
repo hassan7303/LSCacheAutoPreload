@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * تو این صفحه من برا اینکه مشکل نخوره گوشی های قدیمی و ایفون اونارو هم به لیست گوشی ها اضافه کردم میتونید بردارید
  * Standalone background preload script (safe for LiteSpeed)
  */
 
@@ -39,7 +40,7 @@ function preload_request($url, $ua)
     curl_close($ch);
 
     $status = isset($headers['http_code']) ? $headers['http_code'] : 'N/A';
-    error_log("[LSCache Preload] → [$status] " . ($err ? "❌ $err" : "✅ Success") . " | UA=" . substr($ua, 0, 25));
+    // 	error_log("[LSCache Preload] → [$status] " . ($err ? "❌ $err" : "✅ Success") . " | UA=" . substr($ua, 0, 25));
 }
 
 preload_request($url, $desktopUA);
