@@ -51,7 +51,6 @@ if (!class_exists('LSCache_Auto_Preload_Debug')) {
             if (self::$preloaded_all) return;
             self::$preloaded_all = true;
 
-            // Preload صفحه اصلی
             self::schedule_async_preload(home_url('/'));
 
             // Preload صفحات ثابت مهم
@@ -74,7 +73,7 @@ if (!class_exists('LSCache_Auto_Preload_Debug')) {
         }
         private static function schedule_async_preload($url)
         {
-            error_log('[LSCache ]' . $url);
+            // error_log('[LSCache urls ]' . $url);// برای دیدن یو ار ال هایی که کش میشوند فعال کنید
             $php = escapeshellcmd(PHP_BINARY);
             $script = escapeshellarg(__DIR__ . '/run_preload.php');
             $cmd = "$php $script " . escapeshellarg($url) . " > /dev/null 2>&1 &";
